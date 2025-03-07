@@ -4,22 +4,15 @@
 
 {
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  ### HARDWARE ########################
 
-  networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
-
-  # Enable Bluetooth
-  hardware.bluetooth.enable = true;
+  ### OS ##############################
 
   # Set your time zone.
   time.timeZone = "Europe/Amsterdam";
@@ -41,7 +34,7 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -53,8 +46,23 @@
     variant = "euro";
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+  ### COMMANDS ########################
+
+  environment.shellAliases = {
+    syncrebuild = "cd ~/.nixfiles && git pull && sudo nixos-rebuild switch"
+  }
+
+  ### NETWORKING ######################
+
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Enable networking
+  networking.networkmanager.enable = true;
+
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
+
+  ### AUDIO ###########################
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -72,8 +80,7 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+  ### SOFTWARE ########################
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -100,19 +107,5 @@
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "24.11"; # Did you read the comment?
 
 }
