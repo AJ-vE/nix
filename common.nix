@@ -49,7 +49,7 @@
   ### COMMANDS ########################
 
   environment.shellAliases = {
-    syncrebuild = "cd ~/.nixfiles && git pull && sudo nixos-rebuild switch";
+    syncrebuild = "cwd=$(pwd) && cd ~/.nixfiles && git pull && sudo nixos-rebuild switch && cd ${cwd}";
   };
 
   ### NETWORKING ######################
