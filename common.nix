@@ -50,6 +50,7 @@
 
   environment.shellAliases = {
     syncrebuild = "cwd=$(pwd) && cd ~/.nixfiles && echo '\nPulling config files from git...' && git pull && echo '\nRebuilding NixOS...' && sudo nixos-rebuild boot && cd $cwd";
+    syncreboot = "syncrebuild && sudo reboot now";
     quickpush = "cwd=$(pwd) && cd ~/.nixfiles && echo '\nPulling...' && git pull && echo '\nCommitting...' && git add . && git commit -m 'Quick commit, default message' && echo '\nPushing...' && git push && cd $cwd";
   };
 
