@@ -49,8 +49,8 @@
   ### COMMANDS ########################
 
   environment.shellAliases = {
-    syncrebuild = "cwd=$(pwd) && cd ~/.nixfiles && echo 'Pulling config files from git...' && git pull && echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch && cd $cwd";
-    quickpush = "cwd=$(pwd) && cd ~/.nixfiles && echo 'Pulling...' && git pull && echo 'Committing...' git add . && git commit -m 'Quick commit, default message' && echo 'Pushing...' && git push && cd $cwd";
+    syncrebuild = "cwd=$(pwd) && cd ~/.nixfiles && echo '\nPulling config files from git...' && git pull && echo '\nRebuilding NixOS...' && sudo nixos-rebuild boot && cd $cwd";
+    quickpush = "cwd=$(pwd) && cd ~/.nixfiles && echo '\nPulling...' && git pull && echo '\nCommitting...' && git add . && git commit -m 'Quick commit, default message' && echo '\nPushing...' && git push && cd $cwd";
   };
 
   ### NETWORKING ######################
