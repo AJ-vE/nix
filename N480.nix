@@ -2,7 +2,6 @@
 
 { config, pkgs, ... }:
 
-
 {
 
   ### HARDWARE ########################
@@ -32,7 +31,7 @@
 
   ### NETWORKING ######################
   
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "N480"; # Define your hostname.
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
