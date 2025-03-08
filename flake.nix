@@ -17,18 +17,14 @@
 
       N480 = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./N480.nix];
+        modules = [./configs/N480/configuration.nix];
       };
 
-      # nix_pavilion = nixpkgs.lib.nixosSystem {
-      #   specialArgs = { inherit inputs; };
-      #   system = "x86_64-linux";
-      #   modules = [
-      #     ./configs/common/configuration.nix
-      #     ./configs/nix_pavilion/configuration.nix
-      #   ];
-      # };
-      
+      nix_pavilion = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [./configs/nix_pavilion/configuration.nix];
+      };
+
     };
 
   };
