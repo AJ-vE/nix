@@ -21,7 +21,7 @@
       N480 = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit system; };
         modules = [
-          ./configs/N480/configuration.nix
+          ./configs/common/configuration.nix
         ];
       };
 
