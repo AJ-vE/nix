@@ -5,8 +5,8 @@
 {
   imports =
     [
-      ./hardware-configuration.nix  # Include the results of the hardware scan.
-      ../common/configuration.nix  # Include the shared config.
+      ./N480-hardware-configuration.nix  # Include the results of the hardware scan.
+      ./common.nix  # Include the shared config.
     ];
 
   ### HARDWARE ########################
