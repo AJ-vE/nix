@@ -19,22 +19,20 @@
     nixosConfigurations = {
 
       N480 = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        system = "x86_64-linux";
+        specialArgs = { inherit system; };
         modules = [
-          ./configs/common/configuration.nix
           ./configs/N480/configuration.nix
         ];
       };
 
-      nix_pavilion = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
-        system = "x86_64-linux";
-        modules = [
-          ./configs/common/configuration.nix
-          ./configs/nix_pavilion/configuration.nix
-        ];
-      };
+      # nix_pavilion = nixpkgs.lib.nixosSystem {
+      #   specialArgs = { inherit inputs; };
+      #   system = "x86_64-linux";
+      #   modules = [
+      #     ./configs/common/configuration.nix
+      #     ./configs/nix_pavilion/configuration.nix
+      #   ];
+      # };
       
     };
 
