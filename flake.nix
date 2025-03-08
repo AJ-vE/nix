@@ -8,6 +8,7 @@
 
   outputs = inputs@{self, nixpkgs, ... }:
   let 
+    inherit (self) outputs;
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
