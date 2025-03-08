@@ -4,26 +4,20 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{self, nixpkgs, ... }:
+  outputs = {self, nixpkgs, home-manager, ...}@inputs:
   let 
     inherit (self) outputs;
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-    };
-    lib = nixpkgs.lib;
   in {
 
     nixosConfigurations = {
 
       N480 = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs system; };
-        modules = [
-          ./N480.nix
-        ];
+        specialArgs = {inherit inputs outputs;};
+        modules = [./N480.nix];
       };
 
       # nix_pavilion = nixpkgs.lib.nixosSystem {

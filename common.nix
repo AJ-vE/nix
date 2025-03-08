@@ -1,6 +1,6 @@
 # Configuration file to be included in every machine.
 
-{ config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
 
 {
 

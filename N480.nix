@@ -1,8 +1,9 @@
 # Configuration file specific to N480
 
-{ config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
 
 {
+  
   imports =
     [
       ./N480-hardware-configuration.nix  # Include the results of the hardware scan.
