@@ -11,19 +11,26 @@
   outputs = {self, nixpkgs, home-manager, ...}@inputs:
   let 
     inherit (self) outputs;
+    sysyem = "x86_64-linux";
   in {
 
     nixosConfigurations = {
 
       N480 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./machines/N480/configuration.nix];
+        specialArgs = {inherit inputs outputs system;};
+        modules = [
+          inputs.home-manager.nixosModules.home-manager
+          ./machines/N480/configuration.nix
+          ];
       };
 
-      nix_pavilion = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules = [./machines/nix_pavilion/configuration.nix];
-      };
+      # nix_pavilion = nixpkgs.lib.nixosSystem {
+      #   specialArgs = {inherit inputs outputs system;};
+      #   modules = [
+      #     inputs.home-manager.nixosModules.home-manager
+      #     ./machines/nix_pavilion/configuration.nix
+      #   ];
+      # };
 
     };
 
