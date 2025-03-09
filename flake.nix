@@ -24,13 +24,13 @@
           ];
       };
 
-      # nix_pavilion = nixpkgs.lib.nixosSystem {
-      #   specialArgs = {inherit inputs outputs system;};
-      #   modules = [
-      #     inputs.home-manager.nixosModules.home-manager
-      #     ./machines/nix_pavilion/configuration.nix
-      #   ];
-      # };
+      nix_pavilion = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs system;};
+        modules = [
+          inputs.home-manager.nixosModules.home-manager
+          ./machines/nix_pavilion/configuration.nix
+        ];
+      };
 
     };
 

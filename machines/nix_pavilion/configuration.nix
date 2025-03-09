@@ -6,8 +6,14 @@
   
   imports =
     [
+      # machine-specific modules
       ./hardware-configuration.nix  # Include the results of the hardware scan.
-      ../../modules/common/configuration.nix
+
+      # shared modules
+      ../../modules/common/default.nix
+
+      # home-manager
+      ./home.nix
     ];
 
   ### HARDWARE ########################
