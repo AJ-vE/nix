@@ -13,4 +13,8 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+  
 }
