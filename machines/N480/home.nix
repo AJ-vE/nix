@@ -4,17 +4,11 @@
 
 {
 
-  imports =
-    [
-      
-    ];
-
-
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     users = {
       # Import your home-manager configuration
-      ad = import ./home2.nix;
+      ad = import ./users/user1.nix;
     };
   };
 
