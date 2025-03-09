@@ -15,6 +15,8 @@
 
   ### OS ##############################
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
@@ -53,9 +55,9 @@
   ### COMMANDS ########################
 
   environment.shellAliases = {
-    syncrebuild = "cwd=$(pwd) && cd ~/.nixfiles && echo '\nPulling config files from git...' && git pull && echo '\nRebuilding NixOS...' && sudo nixos-rebuild boot && cd $cwd";
+    syncrebuild = "cwd=$(pwd) && cd /etc/nixos && echo '\nPulling config files from git...' && git pull && echo '\nRebuilding NixOS...' && sudo nixos-rebuild boot && cd $cwd";
     syncreboot = "syncrebuild && sudo reboot now";
-    quickpush = "cwd=$(pwd) && cd ~/.nixfiles && echo '\nPulling...' && git pull && echo '\nCommitting...' && git add . && git commit -m 'Quick commit, default message' && echo '\nPushing...' && git push && cd $cwd";
+    quickpush = "cwd=$(pwd) && cd /etc/nixos && echo '\nPulling...' && git pull && echo '\nCommitting...' && git add . && git commit -m 'Quick commit, default message' && echo '\nPushing...' && git push && cd $cwd";
   };
 
   ### NETWORKING ######################
