@@ -6,7 +6,7 @@
 
   inputs.home-manager.useGlobalPkgs = true;
   inputs.home-manager.useUserPackages = true;
-  inputs.home-manager.sharedModules = [ inputs.plasma-manager.homeManagerModules.plasma-manager ];
+  inputs.home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
 
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
