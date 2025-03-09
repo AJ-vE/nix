@@ -11,7 +11,7 @@
   outputs = {self, nixpkgs, home-manager, ...}@inputs:
   let 
     inherit (self) outputs;
-    sysyem = "x86_64-linux";
+    system = "x86_64-linux";
   in {
 
     nixosConfigurations = {
