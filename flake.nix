@@ -26,7 +26,7 @@
       N480 = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs system;};
         modules = [
-          home-manager.nixosModules.home-manager
+          inputs.home-manager.nixosModules.home-manager
           ./machines/N480/configuration.nix
           ];
       };
@@ -34,7 +34,7 @@
       nix_pavilion = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs system;};
         modules = [
-          home-manager.nixosModules.home-manager
+          inputs.home-manager.nixosModules.home-manager
           ./machines/nix_pavilion/configuration.nix
         ];
       };
