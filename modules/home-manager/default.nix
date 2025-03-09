@@ -1,9 +1,22 @@
 # Home-manager configuration
 
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 
 {
 
-  home-manager.users.ad.home.stateVersion = "24.11";
+
+  home = {
+    username = "ad";
+    homeDirectory = "/home/ad";
+  };
+
+  # Enable home-manager and git
+  programs.home-manager.enable = true;
+  programs.git.enable = true;
+
+  # Nicely reload system units when changing configs
+  systemd.user.startServices = "sd-switch";
+
+  ad.stateVersion = "24.11";
 
 }
