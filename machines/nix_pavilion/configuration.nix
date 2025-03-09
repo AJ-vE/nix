@@ -7,7 +7,7 @@
   imports =
     [
       ./hardware-configuration.nix  # Include the results of the hardware scan.
-      ../common/configuration.nix  # Include the shared config.
+      ../../modules/common/configuration.nix
     ];
 
   ### HARDWARE ########################
