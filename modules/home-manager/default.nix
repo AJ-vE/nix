@@ -4,6 +4,6 @@
 
 {
 
-  stateVersion = "24.11";
+  home-manager.users.ad.home.stateVersion = "24.11";
 
 }
