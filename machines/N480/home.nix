@@ -1,6 +1,6 @@
 # Home-manager configuration
 
-{ inputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, ... }:
 
 {
 
