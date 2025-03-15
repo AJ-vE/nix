@@ -4,6 +4,10 @@
 
 {
 
+  imports = [
+    ../../../modules/home-manager/default.nix  # Shared home-manager config
+  ];
+  
   home = {
     username = "admin";
     homeDirectory = "/home/admin";
