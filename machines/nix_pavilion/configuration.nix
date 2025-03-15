@@ -68,6 +68,12 @@
 
   networking.firewall.allowedTCPPorts = [ 2049 ];
 
+  ### MOONLIGHT #######################
+  
+    environment.systemPackages = with pkgs; [
+    moonlight-qt
+  ];
+
   ### OTHERS ##########################
 
 }
