@@ -70,7 +70,7 @@
 
   ### MOONLIGHT #######################
   
-    environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
     moonlight-qt
   ];
 
