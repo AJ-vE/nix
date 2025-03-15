@@ -41,7 +41,7 @@
 
   ### NETWORKING ######################
   
-  networking.hostName = "nix_pavilion"; # Define your hostname.
+  networking.hostName = "nix-pavilion"; # Define your hostname.
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

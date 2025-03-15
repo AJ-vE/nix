@@ -31,7 +31,7 @@
           ];
       };
 
-      nix_pavilion = nixpkgs.lib.nixosSystem {
+      nix-pavilion = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs system home-manager plasma-manager;};
         modules = [
           home-manager.nixosModules.home-manager
