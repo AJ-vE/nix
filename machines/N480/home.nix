@@ -1,6 +1,6 @@
 # Home-manager configuration
 
-{ inputs, outputs, lib, config, pkgs, ... }:
+{ inputs, outputs, lib, config, pkgs, plasma-manager, ... }:
 
 {
 
