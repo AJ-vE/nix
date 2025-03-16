@@ -65,17 +65,19 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.production;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # ONLY FOR LAPTOPS
 
-  # hardware.nvidia.prime = {
-	# 	# Make sure to use the correct Bus ID values for your system!
-  #   # 'sudo lshw -c display'
-	# 	intelBusId = "PCI:0:2:0";
-	# 	nvidiaBusId = "PCI:01:0:0";
-	# };
+  hardware.nvidia.prime = {
+    sync.enable = true;
+    
+		# Make sure to use the correct Bus ID values for your system!
+    # 'sudo lshw -c display'
+		intelBusId = "PCI:0:2:0";
+		nvidiaBusId = "PCI:01:0:0";
+	};
 
   ### OS ##############################
 
