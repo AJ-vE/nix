@@ -70,12 +70,12 @@
 
   # ONLY FOR LAPTOPS
 
-  hardware.nvidia.prime = {
-		# Make sure to use the correct Bus ID values for your system!
-    # 'sudo lshw -c display'
-		intelBusId = "PCI:0:2:0";
-		nvidiaBusId = "PCI:01:0:0";
-	};
+  # hardware.nvidia.prime = {
+	# 	# Make sure to use the correct Bus ID values for your system!
+  #   # 'sudo lshw -c display'
+	# 	intelBusId = "PCI:0:2:0";
+	# 	nvidiaBusId = "PCI:01:0:0";
+	# };
 
   ### OS ##############################
 
