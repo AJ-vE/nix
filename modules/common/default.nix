@@ -122,6 +122,8 @@
     enable = true;
     package = pkgs.librewolf;
     policies = {
+      # https://mozilla.github.io/policy-templates/#searchengines--default
+      # Not all policies will work though. Maybe none.
       SearchEngines = {
         Default = "DuckDuckGo";
       };
