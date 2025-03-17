@@ -122,6 +122,9 @@
     enable = true;
     package = pkgs.librewolf;
     policies = {
+      SearchEngines = {
+        Default = "DuckDuckGo";
+      };
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       Preferences = {
@@ -144,7 +147,7 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
         };
-        "tab-stash" = {
+        "tab-stash@condordes.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/tab-stash/latest.xpi";
           installation_mode = "force_installed";
         };
