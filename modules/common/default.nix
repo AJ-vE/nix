@@ -131,6 +131,7 @@
       DisableTelemetry = true;
       DisableFirefoxStudies = true;
       Preferences = {
+        "webgl.disabled" = false;
         "cookiebanners.service.mode.privateBrowsing" = 2; # Block cookie banners in private browsing
         "cookiebanners.service.mode" = 2; # Block cookie banners
         "privacy.donottrackheader.enabled" = true;
