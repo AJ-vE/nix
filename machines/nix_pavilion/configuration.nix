@@ -118,6 +118,17 @@
     /export/bigdrive  192.168.2.7(rw,nohide,insecure,no_subtree_check)
   '';
 
+  ### Nextcloud
+
+  environment.etc."nextcloud-admin-pass".text = "admin";
+  services.nextcloud = {
+    enable = true;
+    package = pkgs.nextcloud31;
+    hostName = "localhost";
+    config.adminpassFile = "/etc/nextcloud-admin-pass";
+    config.dbtype = "sqlite";
+  };
+
   networking.firewall.allowedTCPPorts = [ 2049 ];
 
   ### MOONLIGHT #######################
