@@ -118,15 +118,38 @@
     /export/bigdrive  192.168.2.7(rw,nohide,insecure,no_subtree_check)
   '';
 
+  services.nginx.virtualHosts = {
+    "cloud.local.nl" = {
+      forceSSL = true;
+      enableACME = true;
+    };
+  };
+
   ### Nextcloud
 
   environment.etc."nextcloud-admin-pass".text = "admin";
   services.nextcloud = {
-    enable = true;
     package = pkgs.nextcloud30;
-    hostName = "localhost";
-    config.adminpassFile = "/etc/nextcloud-admin-pass";
-    config.dbtype = "sqlite";
+
+    enable = true;
+
+    https = true;
+    hostName = "cloud.local.nl";
+
+    config = {
+      adminuser = "admin";
+      adminpassFile = "/etc/nextcloud-admin-pass";
+      dbtype = "sqlite";
+    };
+
+    # Let NixOS install and configure the database automatically.
+    database.createLocally = true;
+
+    # Let NixOS install and configure Redis caching automatically.
+    configureRedis = true;
+
+    # Increase the maximum file upload size to avoid problems uploading videos.
+    maxUploadSize = "32G";
   };
 
   networking.firewall.allowedTCPPorts = [ 2049 ];
