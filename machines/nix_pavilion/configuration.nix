@@ -118,12 +118,12 @@
     /export/bigdrive  192.168.2.7(rw,nohide,insecure,no_subtree_check)
   '';
 
-  services.nginx.virtualHosts = {
-    "cloud.local.nl" = {
-      forceSSL = true;
-      enableACME = true;
-    };
-  };
+  # services.nginx.virtualHosts = {
+  #   "cloud.local.nl" = {
+  #     forceSSL = true;
+  #     enableACME = true;
+  #   };
+  # };
 
   ### Nextcloud
 
@@ -134,7 +134,8 @@
     enable = true;
 
     https = true;
-    hostName = "cloud.local.nl";
+    # hostName = "cloud.local.nl";
+    hostName = "localhost";
 
     config = {
       adminuser = "admin";
