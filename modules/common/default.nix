@@ -114,6 +114,7 @@
     easyeffects
     roomeqwizard
     orca-slicer
+    runescape
   ];
 
   programs.steam.enable = true;
