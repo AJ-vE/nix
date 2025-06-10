@@ -114,8 +114,9 @@
     easyeffects
     roomeqwizard
     orca-slicer
-    steam
   ];
+
+  programs.steam.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
