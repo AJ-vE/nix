@@ -121,6 +121,7 @@
     roomeqwizard
     orca-slicer
     runescape
+    runelite
   ];
 
   programs.steam.enable = true;
