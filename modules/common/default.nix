@@ -122,6 +122,7 @@
     orca-slicer
     runescape
     runelite
+    discord
   ];
 
   programs.steam.enable = true;
