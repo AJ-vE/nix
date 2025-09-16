@@ -123,6 +123,8 @@
     runescape
     runelite
     discord
+    spotify
+    spicetify-cli
   ];
 
   programs.steam.enable = true;
