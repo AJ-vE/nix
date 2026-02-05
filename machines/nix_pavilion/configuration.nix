@@ -159,6 +159,7 @@
   
   environment.systemPackages = with pkgs; [
     moonlight-qt
+    pkgs.mpv
   ];
 
   ### OTHERS ##########################
