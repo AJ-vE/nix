@@ -125,6 +125,7 @@
     discord
     spotify
     spicetify-cli
+    qbittorrent
   ];
 
   programs.steam.enable = true;
