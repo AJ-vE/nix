@@ -126,8 +126,9 @@
     spotify
     spicetify-cli
     qbittorrent
-    qmk
   ];
+
+  hardware.keyboard.qmk.enable = true;
 
   programs.steam.enable = true;
 
