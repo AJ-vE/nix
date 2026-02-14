@@ -131,7 +131,7 @@
   services.nextcloud = {
     package = pkgs.nextcloud30;
 
-    enable = true;
+    enable = false;
 
     https = true;
     # hostName = "cloud.local.nl";
