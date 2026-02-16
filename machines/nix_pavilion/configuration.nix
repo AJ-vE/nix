@@ -94,6 +94,7 @@
   ### NETWORKING ######################
   
   networking.hostName = "nix-pavilion"; # Define your hostname.
+  networking.nameservers = ["1.1.1.1"];  # DNS
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
