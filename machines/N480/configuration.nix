@@ -11,9 +11,6 @@
 
       # shared modules
       ../../modules/common/default.nix
-
-      # home-manager
-      ./home.nix
     ];
 
   ### HARDWARE ########################
