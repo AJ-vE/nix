@@ -8,9 +8,6 @@
     [
       # machine-specific modules
       ./hardware-configuration.nix  # Include the results of the hardware scan.
-
-      # shared modules
-      ../../modules/common/default.nix
     ];
 
   ### HARDWARE ########################

@@ -18,6 +18,7 @@
         specialArgs = {inherit inputs outputs system;};
         modules = [
           ./machines/N480/configuration.nix
+          ./modules
           ];
       };
 
@@ -25,6 +26,7 @@
         specialArgs = {inherit inputs outputs system;};
         modules = [
           ./machines/nix_pavilion/configuration.nix
+          .|modules
         ];
       };
 
