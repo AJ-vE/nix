@@ -3,12 +3,6 @@
 { config, pkgs, ... }:
 
 {
-  
-  imports =
-    [
-      # machine-specific modules
-      ./hardware-configuration.nix  # Include the results of the hardware scan.
-    ];
 
   ### HARDWARE ########################
   
@@ -85,79 +79,10 @@
     ];
   };
 
-  ### NETWORKING ######################
-  
-  networking.hostName = "nix-pavilion"; # Define your hostname.
-  networking.nameservers = ["1.1.1.1"];  # DNS
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  ### NFS
-
-  fileSystems."/export/bigdrive" = {
-    device = "/mnt/bigdrive";
-    options = [ "bind" ];
-  };
-
-  services.nfs.server.enable = true;
-  services.nfs.server.exports = ''
-    /export           192.168.2.7(rw,fsid=0,no_subtree_check)
-    /export/bigdrive  192.168.2.7(rw,nohide,insecure,no_subtree_check)
-  '';
-
-  # services.nginx.virtualHosts = {
-  #   "cloud.local.nl" = {
-  #     forceSSL = true;
-  #     enableACME = true;
-  #   };
-  # };
-
-  ### Nextcloud
-
-  environment.etc."nextcloud-admin-pass".text = "admin";
-  services.nextcloud = {
-    package = pkgs.nextcloud30;
-
-    enable = false;
-
-    https = true;
-    # hostName = "cloud.local.nl";
-    hostName = "localhost";
-
-    config = {
-      adminuser = "admin";
-      adminpassFile = "/etc/nextcloud-admin-pass";
-      dbtype = "sqlite";
-    };
-
-    # Let NixOS install and configure the database automatically.
-    database.createLocally = true;
-
-    # Let NixOS install and configure Redis caching automatically.
-    configureRedis = true;
-
-    # Increase the maximum file upload size to avoid problems uploading videos.
-    maxUploadSize = "32G";
-  };
-
-  networking.firewall.allowedTCPPorts = [ 2049 ];
-
-  ### MOONLIGHT #######################
-  
-  environment.systemPackages = with pkgs; [
-    moonlight-qt
-    mpv
-    gparted
-  ];
-
   ### OTHERS ##########################
+
+  basic-networking.hostName = "nix-pavilion"; # Define your hostname.
+
+  hardware.keyboard.qmk.enable = true;
 
 }

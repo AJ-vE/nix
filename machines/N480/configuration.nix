@@ -3,23 +3,10 @@
 { inputs, lib, config, pkgs, ... }:
 
 {
-  
-  imports =
-    [
-      # machine-specific modules
-      ./hardware-configuration.nix  # Include the results of the hardware scan.
-    ];
 
   ### HARDWARE ########################
-  
-  # Mount a NFS drive
-  fileSystems."/mnt/serverdrive" = {
-    device = "192.168.2.6:/bigdrive";
-    fsType = "nfs";
-    options = [ "x-systemd.automount" "noauto" "x-systemd.idle-timeout=600" ];
-  };
 
-  ### OS ##############################
+  ### USERS ###########################
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ad = {
@@ -31,21 +18,18 @@
     ];
   };
 
-  ### NETWORKING ######################
-  
-  networking.hostName = "N480"; # Define your hostname.
-  networking.nameservers = ["1.1.1.1"];  # DNS
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   ### OTHERS ##########################
+
+  basic-networking.hostName = "N480"; # Define your hostname.
+
+  hardware.keyboard.qmk.enable = true;
+
+  os.enable = true;
+  plasma.enable = true;
+  aliases.enable = true;
+  firefox.enable = true;
+  audio.enable = true;
+  locale.enable = true;
+  basic-networking.enable = true;
 
 }

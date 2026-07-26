@@ -18,15 +18,17 @@
         specialArgs = {inherit inputs outputs system;};
         modules = [
           ./machines/N480/configuration.nix
+          ./machines/N480/hardware-configuration.nix
           ./modules
-          ];
+        ];
       };
 
       nix-pavilion = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs system;};
         modules = [
           ./machines/nix_pavilion/configuration.nix
-          .|modules
+          ./machines/nix_pavilion/hardware-configuration.nix
+          ./modules
         ];
       };
 
